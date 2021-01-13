@@ -15,7 +15,7 @@ jobs:
         env:
           TAG_NAME: eumagnun/meu-site
           PATH_DOCKER_FILE: ./Docker
-          run: echo $TAG_NAME $PATH_DOCKER_FILE
+        run: echo $TAG_NAME $PATH_DOCKER_FILE
           
       - name: Checkout
         uses: actions/checkout@v2
