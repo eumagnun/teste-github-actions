@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on:
+  release:
+    types: [published]
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Get the version
+      id: get_version
+      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+      shell: bash 
+
+    - name: Build the Docker image
+      run: docker build ./Docker/Dockerfile --tag eumagnun/meu-site:$(VERSION)
