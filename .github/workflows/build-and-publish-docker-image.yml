@@ -20,4 +20,4 @@ jobs:
       shell: bash 
 
     - name: Build the Docker image
-      run: docker build ./Docker/Dockerfile --tag eumagnun/meu-site:${{steps.get_version.outputs.VERSION}}
+      run: docker build ./Docker --tag eumagnun/meu-site:${{steps.get_version.outputs.VERSION}}
